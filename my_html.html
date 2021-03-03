@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="css/my.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+      </script>
+      <script>
+      // reservation form
+        $(function(){
+          load_settings();
+          $('form#booking').submit(function(event){
+            event.preventDefault();
+            save_settings();
+          });
+        });
+        function save_settings(){
+          localStorage.setItem("name", $("#name").val());
+          localStorage.setItem("email", $("#email").val());
+          localStorage.setItem("date", $("#date").val());
+           localStorage.setItem("time", $("#time").val());
+           localStorage.setItem("numbers", $("#numbers").val());
+          apply_preferences_to_page();
+        }
+        function apply_preferences_to_page(){
+          $("body").css("name", $("#name").val());
+          $("body").css("email", $("#email").val());
+          $("body").css("date", $("#date").val());
+          $("body").css("time", $("time").val());
+          $("body").css("numbers", $("#numbers").val());
+        }
+        function load_settings(){
+          var name = localStorage.getItem("name");
+          var email = localStorage.getItem("email");
+          var date = localStorage.getItem("date");
+          var time= localStorage.getItem("time");
+          var numbers = localStorage.getItem("numbers");
+          $("#name").val(name);
+          $("#email").val(email);
+          $("#date").val(date);
+          $("#time").val(time);
+          $("#numbers").val(numbers);
+          apply_preferences_to_page();
+        }
+        localStorage.clear();
+      </script>
+</head>
+  <body>
+    <header id = 'header' class = 'header'>
+      <div class="main-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <img src="img/logo2.png" alt="The planet of taste">
+        </div>
+        <div class="col-lg-6">
+          <nav>
+            <ul class ='menu d-flex justify-content-between'>
+              <li class = 'menu__item'>
+              <a href="my_html.html"> Home</a>
+              </li>
+              <li class = 'menu__item'>
+              <a href="menu.html"> Menu</a>
+              <li class = 'menu__item'>
+              <a href="Recipe.html"> Recipe</a>
+              </li>
+              <li class = 'menu__item'>
+              <a href="blog.html">Blog</a>
+              </li>
+              <li class = 'menu__item'>
+              <a href="Contacts.html"> Contacts</a>
+              </li>
+            </ul>
+          </nav>
+            </div>
+            <div class="col-lg-3">
+              <button class ="book cta d-flex justify-content-center"  data-toggle = "modal" data-target = "#myModal">
+                <span class ='book__icon' ></span>
+                Book your table
+              </button>
+              <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <form action="save_booking" id = "booking" method = "post" accept-charset= "utf-8">
+        <label>Your name:</label> <br>
+            <input type="text" name="firstname" id = "name">
+            <br>
+          <label>Your email:</label><br>
+            <input type="email" name="email" value="" id ="email" ><br>
+          <label >Date for reservation</label><br>
+            <input type="date" name="date" value="2019-07-10" id = "date"><br>
+            <label>The time of visiting</label> <br>
+            <input type="time" name="time" id = "time" required><br>
+        <label>How many persons:</label>  <br>
+            <input type="number" name="number" value="3" id = "numbers" required> <br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+          </div>
+      </div>
+      <div class="offer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+            <div class="first">
+              <h1 class = title__heading>
+              Taste your favourite dish </h1>
+              <p class="title__desc"> From Our restaurant
+                </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id = 'about' class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="history">
+              <h2 class = "history__title">
+                About Restaurant
+              </h2>
+              <p class = "history__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <a href="#" class = "cta history__button">
+                Read more
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="food-images
+            food-images-down">
+              <img src="img/dish-918613_640.jpg" alt="Pancake"
+               class = "food-images__item">
+               <img src="img/food-712665_640.jpg" alt="Fish"
+                class = "food-images__item">
+              </div>
+              </div>
+        <div class="col-lg-3">
+                <div class="food-images">
+                  <img src="img/restaurant-691397_640.jpg" alt="Glasses"
+                   class = "food-images__item">
+                   <img src="img/pizza.jpg" alt="Pizza"
+                    class = "food-images__item">
+                  </div>
+                  </div>
+                  </div>
+      </div>
+     </section>
+     <section id = 'special' class="special">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-12">
+             <h2 class = "special-title">
+             Today Special</h2>
+           </div>
+ </div>
+ <div class="row">
+    <div class="col-lg-6">
+      <div class="food">
+        <img src="img/beer-2178693_640.jpg" alt="Dish 1" class="food__img img-fluid">
+        <h3 class="food__title">
+          Food Name one
+        </h3>
+        <p class="food__desc">
+          printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+        </p>
+        <div class="food__details d-flex">
+          <div class="food__del">
+            Home
+            <span>
+              Delivery
+            </span>
+          </div>
+          <div class="food__phone">
+            1-008 005 006
+          </div>
+          <div class="food__price yellow ml-auto">
+            <sup><small>$</small></sup>
+            24.00
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="food">
+        <img src="img/hamburger-2044036_640.jpg" alt="Dish 1" class="food__img img-fluid">
+        <h3 class="food__title">
+          Food Name one
+        </h3>
+        <p class="food__desc">
+          printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+        </p>
+        <div class="food__details d-flex">
+          <div class="food__del">
+            Home
+            <span>
+              Delivery
+            </span>
+          </div>
+          <div class="food__phone">
+            1-008 005 006
+          </div>
+          <div class="food__price yellow ml-auto">
+            <sup><small>$</small></sup>
+            18.00
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      </section>
+      <section id = 'call' class="call">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="phone d-flex ml-auto mr-auto">
+                <div class="phone__text">
+                  Call for  Delivery
+                </div>
+                <div class="phone__digits">
+                  1 -008 005 006
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+         </section>
+          <section id = "maps" class = maps>
+            <div id="map"></div>
+   <div id="googleMap"></div>
+          </section>
+      <footer id = "footer" class = "footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class = "socials d-flex justify-content-center">
+              <li class = "socials__item socials__item_fb">
+                <a href="#"></a>
+              </li>
+              <li class = "socials__item socials__item_tw">
+                <a href="#"></a>
+              </li>
+              <li class = "socials__item socials__item_g ">
+                <a href="#"></a>
+              </li>
+            </ul>
+            </div>
+ <div class="row">
+   <div class="col-lg-4">
+     <div class="line"> </div>
+ </div>
+   <div class="col-lg-4">
+     <div class="credits">
+       2018 All rights reserved
+     </div>
+</div>
+   <div class="col-lg-4">
+     <div class="line"></div>
+       <button class = "scrollup" title="Go to top">Up</button>
+ </div>
+ </div>
+  </div>
+</div>
+  </footer>
+  <script src = "js/my.js">
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtTeZAwMKGLtY-A1uuiuGnHKnFbTZBNcE&callback=initMap">
+  </script>
+  <script>
+  //Google maps
+// Initialize and add the map
+function initMap() {
+ // The location of Uluru
+ var uluru = {lat: 51.2463351, lng: 22.5516869};
+ // The map, centered at Uluru
+ var map = new google.maps.Map(
+     document.getElementById('map'), {zoom: 17, center: uluru});
+ // The marker, positioned at Uluru
+ var marker = new google.maps.Marker({position: uluru, map: map});
+}
+   </script>
+
+  </body>
